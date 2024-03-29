@@ -18,4 +18,20 @@ public class Vertex {
         this.number = number;
         this.edges = new ArrayList<>();
     }
+
+    public Vertex[] getNeighbours(){
+        Vertex[] neighbours = new Vertex[this.edges.size()];
+
+        for(int i = 0; i < this.edges.size(); i++){
+            
+            if(!this.edges.get(i).getOrigin().equals(this)){
+                neighbours[i] = this.edges.get(i).getOrigin();
+            }else{
+                neighbours[i] = this.edges.get(i).getDestination();
+            }
+            
+        }
+
+        return neighbours;
+    }
 }
