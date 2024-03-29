@@ -1,18 +1,19 @@
 package com.rafatars;
 
-import java.io.FileNotFoundException;
-
+import com.rafatars.classes.Analyzer;
 import com.rafatars.classes.Graph;
 
 public class Main {
     public static void main(String[] args) {
         
-        try {
-            Graph graph = new Graph("src/main/resources/graph.txt");
-        } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+        String graphPath = "src/main/resources/graph.txt";
+
+        Graph graph = new Graph(graphPath);
+        
+        Analyzer analyzer = new Analyzer(graph);
+
+        System.out.println("O grafo é simples: " + analyzer.isDirected(graph));
+        System.out.println("O tamanho do grafo é: " + analyzer.size(graph));
         
     }
 }
