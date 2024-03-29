@@ -47,12 +47,12 @@ public class Graph {
                 for(int i = 0; i < lineCharacters.length; i++){
                     
                     String value = lineCharacters[i];
-                    if(value != "0"){
+                    if(!value.equals("0")){
 
                         //get the vertex that corresponds to the actual column
                         Vertex vertex = vertices.get(i);
 
-                        if(value == "-1" || edge.getOrigin() != null){
+                        if(value.equals("-1") || edge.getOrigin() != null || edge.getOrigin() != null && i == lineCharacters.length - 1){
                             
                             if(value.equals("-1")){
                                 edge.setDirected(true);
@@ -60,10 +60,14 @@ public class Graph {
 
                             //set the vertex in the edge destination
                             edge.setDestination(vertex);
+                            //add the edge to the vertex edges list
+                            vertex.getEdges().add(edge);
 
                         }else{
                             //set the vertex in the edge origin
                             edge.setOrigin(vertex);
+                            //add the edge to the vertex edges list
+                            vertex.getEdges().add(edge);
                         }
                     }
                 }
