@@ -12,6 +12,19 @@ public class Graph {
     private ArrayList<Vertex> vertices;
     private ArrayList<Edge> edges;
 
+    private boolean simple;
+    private boolean directed;
+    private int order;
+    private int size;
+    private boolean connected;
+    private boolean pseudograph;
+    private boolean reflective;
+    private boolean weighted;
+    private boolean multigraph;
+    private boolean empty;
+    private boolean trivial;
+
+
     public Graph(String filePath) {
 
         vertices = new ArrayList<>();
@@ -82,5 +95,50 @@ public class Graph {
         } catch (FileNotFoundException e) {
             System.out.println("Path not found!\nVerify the path and try again.\nPath: " + filePath);
         }
+    }
+
+    public void analyze() {
+        Analyzer analyzer = new Analyzer(this);
+
+        this.directed = analyzer.isDirected(this);
+        this.order =  analyzer.order(this);
+        this.size =  analyzer.size(this);
+        this.connected = analyzer.isConnected(this);
+        this.pseudograph =  analyzer.isPseudograph(this);
+        this.reflective =  analyzer.isReflective(this);
+        this.weighted = analyzer.isWeighted(this);
+        this.multigraph = analyzer.isMultigraph(this);
+        this.empty = analyzer.isEmpty(this);
+        this.trivial = analyzer.isTrivial(this);
+
+        if(
+            !this.directed && 
+            !this.pseudograph && 
+            !this.reflective && 
+            !this.weighted && 
+            !this.multigraph && 
+            !this.empty && 
+            !this.trivial)
+            {
+            this.simple = true;
+            }
+    }
+
+    public void showAnalyze(){
+
+        System.out.println("\n-------Análise do grafo------------\n");
+        
+        System.out.println("O grafo é simples: " + this.simple);
+        System.out.println("O grafo é direcionado: " + this.directed);
+        System.out.println("Ordem do grafo: " + this.order);
+        System.out.println("O tamanho do grafo é: " + this.size);
+        System.out.println("É conexo: " + this.connected);
+        System.out.println("É um pseudografo: " + this.pseudograph);
+        System.out.println("É reflexivo: " + this.reflective);
+        System.out.println("É ponderado: " + this.weighted);
+        System.out.println("É multigrafo: " + this.multigraph);
+        System.out.println("É vazio: " + this.empty);
+        System.out.println("É trivial: " + this.trivial);
+        
     }
 }
