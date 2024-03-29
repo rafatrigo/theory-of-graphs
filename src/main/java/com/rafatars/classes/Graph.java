@@ -14,6 +14,7 @@ public class Graph {
 
     private boolean simple;
     private boolean directed;
+    private boolean complete;
     private int order;
     private int size;
     private boolean connected;
@@ -101,6 +102,7 @@ public class Graph {
         Analyzer analyzer = new Analyzer(this);
 
         this.directed = analyzer.isDirected(this);
+        this.complete = analyzer.isComplete(this);
         this.order =  analyzer.order(this);
         this.size =  analyzer.size(this);
         this.connected = analyzer.isConnected(this);
@@ -130,6 +132,7 @@ public class Graph {
         
         System.out.println("O grafo é simples: " + this.simple);
         System.out.println("O grafo é direcionado: " + this.directed);
+        System.out.println("O grafo é completo: " + this.complete);
         System.out.println("Ordem do grafo: " + this.order);
         System.out.println("O tamanho do grafo é: " + this.size);
         System.out.println("É conexo: " + this.connected);
