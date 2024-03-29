@@ -82,11 +82,8 @@ public class Analyzer {
             
             for (int i = 0; i < vertex.getEdges().size(); i++) {
                 
-                for(int j = i+1; j < vertex.getEdges().size(); j++) {
-                    
-                    if(vertex.getEdges().get(i).equals(graph.getEdges().get(j))) {
-                        return true;
-                    }
+                if(vertex.getEdges().get(i).getOrigin().equals(vertex.getEdges().get(i).getDestination())) {
+                    return true;
                 }
                 
             }
