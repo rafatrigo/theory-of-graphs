@@ -1,7 +1,5 @@
 package com.rafatars.classes;
 
-import java.util.ArrayList;
-
 import lombok.Data;
 
 @Data
