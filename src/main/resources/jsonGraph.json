@@ -1,0 +1,42 @@
+{
+	"vertices": [
+		{
+			"x": 6.42,
+			"y": 5.14
+		},
+		{
+			"x": 1.26,
+			"y": 1.25
+		},
+		{
+			"x": -6.42,
+			"y": -5.14
+		},
+		{
+			"x": 1.32,
+			"y": 1.31
+		}
+	],
+	"edges": [
+		{
+			"origin": 0,
+			"destination": 1,
+			"directed": false
+		},
+		{
+			"origin": 1,
+			"destination": 2,
+			"directed": false
+		},
+		{
+			"origin": 2,
+			"destination": 3,
+			"directed": false
+		},
+		{
+			"origin": 0,
+			"destination": 3,
+			"directed": false
+		}
+	]
+}
